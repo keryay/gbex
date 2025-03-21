@@ -18,7 +18,7 @@ transform_parameters <- function(theta,gamma_positive,inverse_transform=F){
     }
   } else{
     if(gamma_positive){
-      theta_transformed = data.frame(s = exp(theta$st), g = exp(theta$g))
+      theta_transformed = data.frame(s = exp(theta$st), g = exp(theta$gt))
     } else{
       theta_transformed = data.frame(s = exp(theta$st), g = theta$gt)
     }
