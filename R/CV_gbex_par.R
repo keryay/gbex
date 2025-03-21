@@ -43,7 +43,7 @@ CV_gbex_par <- function(y,X,num_folds,repeat_cv,par_name,par_grid,Bmax,stratifie
   cl <- parallel::makePSOCKcluster(ncores)
   parallel::clusterEvalQ(cl, c(library(gbex)))
   parallel::clusterExport(cl,varlist=list('y','X','Bmax','par_name','arguments','folds'),envir=environment())
-  dev_list = parallel::parLapply(cl, folds, func)
+  dev_list = parallel::parLapply(cl, parallelization_list, func)
   parallel::stopCluster(cl)
 
   job_fold_nr = sapply(parallelization_list,function(job){job$fold_nr})
